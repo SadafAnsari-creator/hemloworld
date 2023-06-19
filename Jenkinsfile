@@ -1,26 +1,25 @@
 pipeline{
     agent any
     tools {
-      maven 'maven'
+     maven 'maven'
     }
     stages{
         stage("BUILD"){
             steps{
-                sh'mvn --version'
-                echo "========executing A========"
+                sh 'mvn package'
             }
            
         }
         stage("TESt"){
             steps{
-                echo "========executing A========"
+                sh 'mvn test'
             }
            
         }
     
         stage("PRODUCTION"){
             steps{
-                echo "========executing A========"
+                deploy adapters: [tomcat9(path: '', url: 'http://43.204.228.27:8080')], contextPath: '/app', war: '**/*.war'
             }
            
         } 
