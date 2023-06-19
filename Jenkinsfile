@@ -19,7 +19,7 @@ pipeline{
     
         stage("PRODUCTION"){
             steps{
-                 deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://43.204.228.27:8080')], contextPath: '/app', war: '**/*.war'            }
+                 deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://43.204.228.27:8080')], contextPath: '/apps', war: '**/*.war'            }
            
         } 
     
