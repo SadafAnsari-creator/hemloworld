@@ -16,8 +16,12 @@ pipeline {
             }
         }
         stage(" Deploy on Test") {
-            steps {
-            deploy adapters: [tomcat9(credentialsId: 'tomcatserver1', path: '', url: 'http://13.126.181.165:8080')], contextPath: '/app', war: '**/*.war'            }
+            input{
+		message "should we continue"
+	        ok "yes we should"
+	      } 
+	   steps {
+	    deploy adapters: [tomcat9(credentialsId: 'tomcatserver1', path: '', url: 'http://13.126.181.165:8080')], contextPath: '/app', war: '**/*.war'            }
             }
         }  
 	post{
