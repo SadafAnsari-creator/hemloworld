@@ -22,8 +22,9 @@ pipeline {
 	        ok "yes we should"
 	      } 
 	   steps {
-	    deploy adapters: [tomcat9(credentialsId: 'tomcatserver1', path: '', url: 'http://13.126.181.165:8080')], contextPath: '/app', war: '**/*.war'            }
-            }
+	    deploy adapters: [tomcat9(credentialsId: 'tomcatserver', path: '', url: 'http://43.205.239.19:8080')], contextPath: '/app', war: '**/*.war'      
+	   }
+          }
         }  
 	post{
 	    always{
